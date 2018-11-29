@@ -1,0 +1,19 @@
+# i3status
+general {
+	output_format = "i3bar"
+	colors = false
+	
+	interval = 1
+}
+
+order +="wireless wlo1"
+
+
+
+wireless wlo1 {
+	format_up = "(%quality at %essid) %ip"
+	format_down = "down"
+
+	#color_good = #eee8d5
+
+}

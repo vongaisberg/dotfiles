@@ -1,0 +1,86 @@
+
+separator=false
+separator_block_width=5
+border_top=0
+border_left=0
+border_right=0
+border_bottom=4
+color=#eee8d5
+
+# Guess the weather hourly
+[weather]
+#command=curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | xargs echo
+#command=printf "Karlsruhe: "; curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | { ~/.config/i3/weather-emojis.sh "$(read -r foo; printf "%s" "$foo")"; read -r foo; printf " %s\n" "$foo"; }
+command=curl -Ss 'https://wttr.in/Karlsruhe?format=%l+%t+%w'
+interval=120
+
+border=#dc322f
+[cpu_temperature]
+label=
+command=i3status --config ~/.config/i3blocks/i3_status_cpu_temperature
+interval=-3
+format=json
+separator=false
+separator_block_width=0
+
+border=#859900
+
+[opening_bracket]
+full_text= (
+separator_block_width=0
+
+border=#859900
+
+[cpu]
+
+command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
+interval=1
+separator_block_width=0
+separator=false
+border=#859900
+
+[closing_bracket]
+full_text=)
+border=#859900
+
+[wireless]
+label=
+command=i3status --config ~/.config/i3blocks/i3_status_wireless
+interval=-3
+format=json
+border=#2aa198
+
+
+[ethernet]
+command=i3status --config ~/.config/i3blocks/i3_status_ethernet
+interval=-3
+format=json
+border=#2aa198
+
+
+[volume]
+command=i3status --config ~/.config/i3blocks/i3_status_volume
+interval=-3
+format=json
+border=#268bd2
+
+
+[battery]
+command=i3status --config ~/.config/i3blocks/i3_status_battery
+interval=-3
+border=#6c71c4
+format=json
+
+# Update time every 5 seconds
+[time]
+command=date "+%d.%m.%Y %T"
+interval=1
+signal=2
+border=#d33682
+
+
+# Invisible block that is used as a one-second cronjob.
+[spotify]
+command=/home/max/workspace.sh | grep "simply return nothing"
+interval=1
+

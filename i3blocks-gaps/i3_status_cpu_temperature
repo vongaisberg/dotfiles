@@ -1,0 +1,16 @@
+# i3status
+
+general {
+output_format = "i3bar"
+colors=true
+interval=1
+color_good = "#0cedc1"
+}
+
+
+order += "cpu_temperature 0"
+
+cpu_temperature 0 {
+format= "%degrees °C"
+max_threshold = 75
+}
