@@ -5,7 +5,7 @@ border_top=0
 border_left=0
 border_right=0
 border_bottom=4
-color=#eee8d5
+color=#e5e9f0
 
 # Guess the weather hourly
 [weather]
@@ -14,7 +14,7 @@ color=#eee8d5
 command=curl -Ss 'https://wttr.in/Karlsruhe?format=%l+%t+%w'
 interval=120
 
-border=#dc322f
+border=#cc6666
 [cpu_temperature]
 label=
 command=i3status --config ~/.config/i3blocks/i3_status_cpu_temperature
@@ -23,13 +23,13 @@ format=json
 separator=false
 separator_block_width=0
 
-border=#859900
+border=#81a2be
 
 [opening_bracket]
 full_text= (
 separator_block_width=0
 
-border=#859900
+border=#81a2be
 
 [cpu]
 
@@ -37,38 +37,38 @@ command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preferenc
 interval=1
 separator_block_width=0
 separator=false
-border=#859900
+border=#81a2be
 
 [closing_bracket]
 full_text=)
-border=#859900
+border=#81a2be
 
 [wireless]
 label=
 command=i3status --config ~/.config/i3blocks/i3_status_wireless
 interval=-3
 format=json
-border=#2aa198
+border=#f0c674
 
 
 [ethernet]
 command=i3status --config ~/.config/i3blocks/i3_status_ethernet
 interval=-3
 format=json
-border=#2aa198
+border=#f0c674
 
 
 [volume]
 command=i3status --config ~/.config/i3blocks/i3_status_volume
 interval=-3
 format=json
-border=#268bd2
+border=#81a2be
 
 
 [battery]
 command=i3status --config ~/.config/i3blocks/i3_status_battery
 interval=-3
-border=#6c71c4
+border=#b294bb
 format=json
 
 # Update time every 5 seconds
@@ -76,7 +76,7 @@ format=json
 command=date "+%d.%m.%Y %T"
 interval=1
 signal=2
-border=#d33682
+border=#8abeb7
 
 
 # Invisible block that is used as a one-second cronjob.
