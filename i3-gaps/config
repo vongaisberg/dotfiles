@@ -261,7 +261,7 @@ bindsym $mod+KP_Subtract exec sudo /home/max/power_settings.sh down
 for_window [class="^.*"] border pixel 1
 
 # Set inner/outer gaps
-gaps inner 15
+gaps inner 10
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
