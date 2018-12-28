@@ -314,7 +314,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-set $mode_launch Launch: (q) qutebrowser (c) chromium, (f) firefox, (n) neomutt, (s) spotify
+set $mode_launch Launch: (q) qutebrowser (c) chromium, (f) firefox, (n) neomutt, (s) spotify (u) unlock
 
 bindsym $mod+g mode "$mode_launch"
 
@@ -326,7 +326,8 @@ mode "$mode_launch" {
 	bindsym f exec firefox;mode "default"
 	bindsym n exec ~/.config/i3/neomutt-startup.sh;mode "default"
 	bindsym q exec qutebrowser;mode "default"
-	bindsym Return mode "default"
+bindsym u exec alacritty -e git/YouShallNotPassword/unlock -socket git/YouShallNotPassword/socket -db_list git/YouShallNotPassword/db_list;mode "default"
+bindsym Return mode "default"
 	bindsym Escape mode "default"
 
 
