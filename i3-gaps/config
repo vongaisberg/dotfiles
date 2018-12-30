@@ -7,7 +7,7 @@ set $mod Mod4
 
 
 # Auto lock after timeout
-exec xautolock -time 10 -locker '~/lock.sh' &
+exec xautolock -time 15 -locker '~/lock.sh' &
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -326,7 +326,7 @@ mode "$mode_launch" {
 	bindsym f exec firefox;mode "default"
 	bindsym n exec ~/.config/i3/neomutt-startup.sh;mode "default"
 	bindsym q exec qutebrowser;mode "default"
-bindsym u exec alacritty -e git/YouShallNotPassword/unlock -socket git/YouShallNotPassword/socket -db_list git/YouShallNotPassword/db_list;mode "default"
+bindsym u exec alacritty -e git/YouShallNotPassword/unlock -socket git/YouShallNotPassword/socket -db /home/max/pass/test.kdbx;mode "default"
 bindsym Return mode "default"
 	bindsym Escape mode "default"
 
