@@ -1,0 +1,60 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+accounts = maximilian-gmail,maximilian-vongaisberg
+# Path to file with arbitrary Python code to be loaded
+pythonfile = ~/.lastpass.py
+
+[mbnames]
+enabled = yes
+filename = ~/.neomutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account maximilian-gmail]
+localrepository = local-maximilian-gmail
+remoterepository = remote-maximilian-gmail
+
+[Account maximilian-vongaisberg]
+localrepository = local-maximilian-vongaisberg
+remoterepository = remote-maximilian-vongaisberg
+
+
+[Repository local-maximilian-vongaisberg]
+type=Maildir
+localfolders = ~/mail/maximilian-vongaisberg
+
+[Repository remote-maximilian-vongaisberg]
+type=IMAP
+remotehost=secure.emailsrvr.com
+remoteuser=maximilian@vongaisberg.de
+remotepasseval=get_pass("email/maximilian@vongaisberg.de")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository local-maximilian-gmail]
+type = Maildir
+localfolders = ~/mail/maximilian-gmail
+
+
+[Repository remote-maximilian-gmail]
+ssl_version = tls1_2
+type = Gmail
+remoteuser = maximilian.gaisberg@gmail.com
+remotepasseval = get_pass("email/maximilian.gaisberg@gmail.com") 
+#nametrans = lambda foldername: re.sub ('^\[gmail\]', 'bak',
+#                               re.sub ('sent_mail', 'sent',
+#                               re.sub ('starred', 'flagged',
+#                               re.sub (' ', '_', foldername.lower()))))
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
+# Necessary as of OfflineIMAP 6.5.4
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+
+
+
+
+
+

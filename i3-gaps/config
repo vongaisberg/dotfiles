@@ -326,7 +326,7 @@ mode "$mode_launch" {
 	bindsym f exec firefox;mode "default"
 	bindsym n exec ~/.config/i3/neomutt-startup.sh;mode "default"
 	bindsym q exec qutebrowser;mode "default"
-bindsym u exec alacritty -e git/YouShallNotPassword/unlock -socket git/YouShallNotPassword/socket -db /home/max/pass/test.kdbx;mode "default"
+bindsym u exec alacritty -e /home/max/git/YouShallNotPassword/unlock.sh;mode "default"
 bindsym Return mode "default"
 	bindsym Escape mode "default"
 
