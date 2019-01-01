@@ -314,7 +314,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-set $mode_launch Launch: (q) qutebrowser (c) chromium, (f) firefox, (n) neomutt, (s) spotify, (u) unlock
+set $mode_launch Launch: (q)utebrowser (c)hromium, (f)irefox, (n)eomutt, (s)potify, (u)nlock
 
 bindsym $mod+g mode "$mode_launch"
 
