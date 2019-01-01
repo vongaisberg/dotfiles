@@ -17,14 +17,20 @@ footer = "\n"
 [Account maximilian-gmail]
 localrepository = local-maximilian-gmail
 remoterepository = remote-maximilian-gmail
+autorefresh = 0.5
+quick=20
 
 [Account maximilian-vongaisberg]
 localrepository = local-maximilian-vongaisberg
 remoterepository = remote-maximilian-vongaisberg
+autorefresh = 0.5
+quick=20
 
 [Account maximilian-gaisberg-helfenber]
 localrepository = local-maximilian-gaisberg-helfenberg
 remoterepository = remote-maximilian-gaisberg-helfenberg
+autorefresh = 0.5
+quick=20
 
 
 [Repository local-maximilian-vongaisberg]
