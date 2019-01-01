@@ -2,7 +2,7 @@
 # get started fast.
 
 [general]
-accounts = maximilian-gmail,maximilian-vongaisberg
+accounts = maximilian-gmail,maximilian-vongaisberg,maximilian-gaisberg-helfenberg
 # Path to file with arbitrary Python code to be loaded
 pythonfile = git/YouShallNotPassword/email_pass.py
 
@@ -21,6 +21,10 @@ remoterepository = remote-maximilian-gmail
 [Account maximilian-vongaisberg]
 localrepository = local-maximilian-vongaisberg
 remoterepository = remote-maximilian-vongaisberg
+
+[Account maximilian-gaisberg-helfenber]
+localrepository = local-maximilian-gaisberg-helfenberg
+remoterepository = remote-maximilian-gaisberg-helfenberg
 
 
 [Repository local-maximilian-vongaisberg]
@@ -54,6 +58,16 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 
 
+[Repository local-maximilian-gaisberg-helfenberg]
+type=Maildir
+localfolders = ~/mail/maximilian-gaisberg-helfenberg
+
+[Repository remote-maximilian-gaisberg-helfenberg]
+type=IMAP
+remotehost=imap.strato.de
+remoteuser=maximilian@gaisberg-helfenberg.de
+remotepasseval=get_pass("email/maximilian@gaisberg-helfenberg.de")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 
 
