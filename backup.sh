@@ -23,7 +23,7 @@ REPOSITORY_DIR="earth"
 ## Hinweis: Für die Verwendung mit einem Backup-Account muss
 ## 'your-storagebox.de' in 'your-backup.de' geändert werden.
 
-REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/./backups/${REPOSITORY_DIR}"
+REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/./backup/${REPOSITORY_DIR}"
 
 ##
 ## Ausgabe in Logdatei schreiben
