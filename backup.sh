@@ -53,7 +53,7 @@ echo "###### Backup gestartet: $(date) ######"
 ##
 
 echo "Übertrage Dateien ..."
-borg create -v --stats                   \
+borg create -v --stats -C lz4 -c 600 --progress   \
     $REPOSITORY::$DATE                   \
     /                                    \
     --exclude /data                      \
@@ -71,6 +71,7 @@ borg create -v --stats                   \
     --exclude /run                       \
     --exclude /lost+found                \
     --exclude /mnt                       \
-    --exclude /var/lib/lxcfs
+    --exclude /var/lib/lxcfs             \
+    --exclude '/home/*/.cache'           \
 
 echo "###### Backup beendet: $(date) ######"
