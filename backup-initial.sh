@@ -71,9 +71,9 @@ borg create -v --stats -C lzma -c 600 --progress   \
     --exclude /run                       \
     --exclude /lost+found                \
     --exclude /mnt                       \
-    --exclude /var/lib/lxcfs
-    --exclude /home/max/.cache
-    --exclude /var/cache
+    --exclude /var/lib/lxcfs             \
+    --exclude '/home/*/.cache'           \
+    --exclude /var/cache                 \
 
 
 echo "###### Backup beendet: $(date) ######"
