@@ -25,7 +25,7 @@ REPOSITORY_DIR="earth"
 
 REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/./backup/${REPOSITORY_DIR}"
 
-DATE="2019-01-05_initial"
+DATE="2019-01-05_initial2"
 ##
 ## Ausgabe in Logdatei schreiben
 ##
@@ -53,7 +53,7 @@ echo "###### Backup gestartet: $(date) ######"
 ##
 
 echo "Übertrage Dateien ..."
-borg create -v --stats -C lzma -c 600 --progress   \
+borg create -v --stats -C lzma -c 600 --progress --comment "Including /var/cache"  \
     $REPOSITORY::$DATE                   \
     /                                    \
     --exclude /data                      \
@@ -73,7 +73,6 @@ borg create -v --stats -C lzma -c 600 --progress   \
     --exclude /mnt                       \
     --exclude /var/lib/lxcfs             \
     --exclude '/home/*/.cache'           \
-    --exclude /var/cache                 \
 
 
 echo "###### Backup beendet: $(date) ######"

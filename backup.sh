@@ -53,7 +53,7 @@ echo "###### Backup gestartet: $(date) ######"
 ##
 
 echo "Übertrage Dateien ..."
-borg create -v --stats -C lz4 -c 600 --progress   \
+borg create -v --stats -C lzma -c 600 --progress   \
     $REPOSITORY::$DATE                   \
     /                                    \
     --exclude /data                      \
