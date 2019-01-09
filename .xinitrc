@@ -23,6 +23,6 @@ compton -b -c --config ~/.config/compton.conf &
 ~/.fehbg &
 
 # Start YSNP password agent
-~/git/YouShallNotPassword/server -socket ~/git/YouShallNotPassword/socket
+~/git/YouShallNotPassword/server -socket ~/git/YouShallNotPassword/socket &
 
 exec i3
