@@ -10,7 +10,7 @@ color=#e5e9f0
 [crypto]
 command=~/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "check"
 interval=1
-
+label=Crypto:
 border=#8abeb7
 
 # Guess the weather hourly
