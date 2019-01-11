@@ -10,7 +10,8 @@
 
 ## Damit das Passwort vom Repository nicht eingegeben werden muss
 ## kann es in der Umgepungsvariable gesetzt werden
- export BORG_PASSPHRASE="/home/max/git/YouShallNotPassword/cli -command 'get;passphrases/borg/earth' -socket /home/max/git/YouShallNotPassword/socket"
+ export BORG_PASSPHRASE=`/home/max/git/YouShallNotPassword/cli -command 'get;passphrases/borg_earth' -socket /home/max/git/YouShallNotPassword/socket`
+
 
 ##
 ## Setzten von Variablen
