@@ -57,7 +57,6 @@ borg create -v --stats -C lzma -c 600 --progress --comment "Including /var/cache
     $REPOSITORY::$DATE                   \
     /                                    \
     --exclude /data                      \
-    --exclude /bin                       \
     --exclude /boot                      \
     --exclude /dev                       \
     --exclude /lib                       \
@@ -65,7 +64,6 @@ borg create -v --stats -C lzma -c 600 --progress --comment "Including /var/cache
     --exclude /proc                      \
     --exclude /swapfile                  \
     --exclude /tmp                       \
-    --exclude /sbin                      \
     --exclude /sys                       \
     --exclude /var/run                   \
     --exclude /run                       \

@@ -58,7 +58,6 @@ borg create -v --stats -C lz4 -c 600 --progress   \
     $REPOSITORY::$DATE                   \
     /                                    \
     --exclude /data                      \
-    --exclude /bin                       \
     --exclude /boot                      \
     --exclude /dev                       \
     --exclude /lib                       \
@@ -66,7 +65,6 @@ borg create -v --stats -C lz4 -c 600 --progress   \
     --exclude /proc                      \
     --exclude /swapfile                  \
     --exclude /tmp                       \
-    --exclude /sbin                      \
     --exclude /sys                       \
     --exclude /var/run                   \
     --exclude /run                       \
