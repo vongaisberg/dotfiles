@@ -87,6 +87,6 @@ border=#8abeb7
 
 # Invisible block that is used as a one-second cronjob.
 [spotify]
-command=/home/max/workspace.sh | grep "simply return nothing"
+command=/home/max/git/dotfiles/i3blocks-gaps/workspace.sh | grep "simply return nothing"
 interval=1
 
