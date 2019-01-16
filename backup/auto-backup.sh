@@ -4,5 +4,10 @@ myssid=$(iwgetid -r)
 
 
 if [ "$myssid" = "SGAIS" ] || [ "$myssid" = "karlsruhe.freifunk.net" ] ; then
-	~/git/dotfiles/backup/backup.sh
+sudo	/home/max/git/dotfiles/backup/backup.sh &
+sleep 1
+pid=$(ps aux | grep '[b]org create' | grep -v grep | awk '{print $2}')
+echo "$pid"
+
+cpulimit -l 50 -p "$pid"
 fi
