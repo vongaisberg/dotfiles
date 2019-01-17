@@ -340,6 +340,8 @@ for_window [class="Spotify"] move to workspace number $ws10
 
 
 
+#Enable libinput-gestures
+exec ~/git/libinput-gestures/libinput-gestures-setup start &
 
 
 
