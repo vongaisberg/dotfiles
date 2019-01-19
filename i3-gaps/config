@@ -3,7 +3,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-
+focus_follows_mouse no
 
 
 # Auto lock after timeout
