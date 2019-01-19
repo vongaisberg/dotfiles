@@ -23,4 +23,6 @@ compton -b -c --config ~/.config/compton.conf &
 # Start YSNP password agent
 ~/git/YouShallNotPassword/server -socket ~/git/YouShallNotPassword/socket &
 
+# Map CapsLock to ESC
+setxkbmap -option caps:escape
 exec i3
