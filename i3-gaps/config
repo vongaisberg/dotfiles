@@ -250,8 +250,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Processor performance_energy_preference
-bindsym $mod+KP_Add exec sudo /home/max/power_settings.sh up > ~/.power_settings.log
-bindsym $mod+KP_Subtract exec sudo /home/max/power_settings.sh down
+bindsym $mod+KP_Add exec sudo /home/max/git/dotfiles/power_saving/power_settings.sh up > ~/.power_settings.log
+bindsym $mod+KP_Subtract exec sudo /home/max/git/dotfiles/power_saving/power_settings.sh down
 
 ##########
 ###GAPS###
