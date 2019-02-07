@@ -1,10 +1,10 @@
 
 separator=false
 separator_block_width=5
-border_top=0
+border_top=-6
 border_left=0
 border_right=0
-border_bottom=4
+border_bottom=3
 color=#e5e9f0
 
 [crypto]
