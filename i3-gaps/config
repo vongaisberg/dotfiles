@@ -261,7 +261,7 @@ bindsym $mod+KP_Subtract exec sudo /home/max/git/dotfiles/power_saving/power_set
 for_window [class="^.*"] border pixel 1
 
 # Set inner/outer gaps
-gaps inner 10
+gaps inner 5
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -292,7 +292,7 @@ mode "$mode_gaps" {
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+        bindsym 0     gaps inner current set 5
 
         bindsym Shift+plus  gaps inner all plus 5
         bindsym Shift+minus gaps inner all minus 5
