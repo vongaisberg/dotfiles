@@ -18,7 +18,25 @@ function getOffset(el) {
     bottom: rect.bottom + window.scrollY
   };
 }
-var elem = document.getElementsByClassName('html5-video-container')[0]
+try{
+var elem = document.getElementsByClassName('html5-main-video')[0]
 var rect = getOffset(elem)
-return(rect.left +" "+rect.top+" "+rect.right+" "+rect.bottom);
+alert(rect.top+" "+rect.bottom)
+httpGetAsync('https://start.mpv/start?url='+window.location.href+'&left='+rect.left+'&top='+rect.top+'&right='+rect.right+'&bottom='+rect.bottom, alert)
 
+new ResizeObserver(updatesize).observe(elem)
+} catch{}
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+function updatesize() {
+ rect = getOffset(elem)
+httpGetAsync('https://move.mpv/start?url='+window.location.href+'&left='+rect.left+'&top='+rect.top+'&right='+rect.right+'&bottom='+rect.bottom, alert)
+}
