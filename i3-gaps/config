@@ -6,6 +6,9 @@ set $mod Mod4
 focus_follows_mouse no
 
 
+#YOUTUBE MPV
+for_window [instance="^youtube-mpv$"] floating enable
+
 # Auto lock after timeout
 exec xautolock -time 15 -locker '~/git/dotfiles/lock.sh' &
 
