@@ -3,7 +3,7 @@
 # Enable compton's fade-in effect so that the lockscreen gets a nice fade-in
 # effect.
 
-env LC_CTYPE=en_US.utf8 printf "asd\uF023"  | convert \( \( $(echo /home/max/.cache/himawaripy/*)'[1920x1080]' \) -gravity center -background black -extent 1920x1080 -gravity center -font /usr/share/fonts/TTF/OpenSans-Regular.ttf -pointsize 30 -draw "fill white text -825,502 'Locked' " \) -gravity center -font /usr/share/fonts/TTF/fa-solid-900.ttf -pointsize 30 -draw "fill white text -0,0 " /tmp/lockscreen.png
+convert \( \( $(echo /home/max/.cache/himawaripy/*)'[1920x1080]' \) -gravity center -background black -extent 1920x1080 -gravity center -font /usr/share/fonts/TTF/OpenSans-Regular.ttf -pointsize 30 -draw "fill white text -825,502 'Locked' " \) lock-solid.png -gravity southwest -geometry +32+22 -composite /tmp/lockscreen.png
 
 
 dbus-send --print-reply --dest=com.github.chjj.compton.${DISPLAY/:/_} / \
