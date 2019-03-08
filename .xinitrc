@@ -11,11 +11,11 @@ xrandr --auto
 
 
 # Update the background image.
-/usr/bin/himawaripy --auto-offset --deadline 2 > ~/.himawaripy.log &
+/usr/bin/himawaripy --deadline 2 > ~/.himawaripy.log &
 
 # Start compton compositor
 
-compton -b -c --config ~/.config/compton.conf &
+compton --dbus -c --config ~/.config/compton.conf &
 
 # Set background image
 ~/.fehbg &
