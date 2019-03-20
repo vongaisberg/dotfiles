@@ -98,3 +98,5 @@ for i in $(seq 0 3);
         do
 		echo $b > "/sys/devices/system/cpu/cpufreq/policy${i}/energy_performance_preference"
         done
+
+pkill -RTMIN+1 i3blocks

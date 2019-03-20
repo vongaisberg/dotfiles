@@ -38,9 +38,9 @@ separator_block_width=0
 border=#81a2be
 
 [cpu]
-
+signal=1
 command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
-interval=1
+interval=10
 separator_block_width=0
 separator=false
 border=#81a2be
