@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Enable compton's fade-in effect so that the lockscreen gets a nice fade-in
-# effect.
 
 convert \( \( $(echo /home/max/.cache/himawaripy/*)'[1920x1080]' \) -gravity center -background black -extent 1920x1080 -gravity center -font /usr/share/fonts/TTF/OpenSans-Regular.ttf -pointsize 30 -draw "fill white text -825,502 'Locked' " \) ~/git/dotfiles/lock-solid.png -gravity southwest -geometry +32+22 -composite /tmp/lockscreen.png
 
+# Enable compton's fade-in effect so that the lockscreen gets a nice fade-in effect.
 
 dbus-send --print-reply --dest=com.github.chjj.compton.${DISPLAY/:/_} / \
     com.github.chjj.compton.opts_set string:no_fading_openclose boolean:false
@@ -25,7 +24,9 @@ i3lock -n -i /tmp/lockscreen.png \
     --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
     --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
     --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+30:y+710" \
-    --radius=15 --veriftext="" --wrongtext=""
+    --radius=15 --veriftext="" --wrongtext="" --noinputtext="" --clock \
+    --timecolor=ffffffff --timepos="w-22:11" --timesize=9.5 \
+    --time-font="opensans"
 pkill -u $USER -USR2 dunst
 
 # Revert compton's config changes.
