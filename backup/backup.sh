@@ -31,7 +31,7 @@ DATE=`date '+%Y-%m-%d_%H:%M:%S'`
 ## Ausgabe in Logdatei schreiben
 ##
 
-exec > >(tee -i ${LOG})
+exec > >(tee -i -a ${LOG})
 exec 2>&1
 
 echo "###### Backup gestartet: $(date) ######"
