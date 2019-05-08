@@ -30,7 +30,7 @@ i3lock -n -i /tmp/lockscreen.png \
 pkill -u $USER -USR2 dunst
 
 # Revert compton's config changes.
-sleep 0.2
+sleep 0.1
 dbus-send --print-reply --dest=com.github.chjj.compton.${DISPLAY/:/_} / \
     com.github.chjj.compton.opts_set string:no_fading_openclose boolean:true
 # dbus-send --print-reply --dest=com.github.chjj.compton.${DISPLAY/:/_} / \
