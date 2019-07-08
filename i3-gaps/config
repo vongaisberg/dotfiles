@@ -3,8 +3,10 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $mod2 Mod1 
+
 # Only used in mouse mode
+set $mod2 Mod1 
+
 focus_follows_mouse no
 
 
@@ -58,10 +60,10 @@ mode "mouse" {
 
 	# Mouse movement (fast) -- arrow keys
 
-	bindsym Shift+$mod2+Left exec xdotool mousemove_relative -- -$fast 0
-	bindsym Shift+$mod2+Down exec xdotool mousemove_relative 0 $fast
-	bindsym Shift+$mod2+Up exec xdotool mousemove_relative -- 0 -$fast
-	bindsym Shift+$mod2+Right exec xdotool mousemove_relative $fast 0
+	bindsym $mod2+Left exec xdotool mousemove_relative -- -$fast 0
+	bindsym $mod2+Down exec xdotool mousemove_relative 0 $fast
+	bindsym $mod2+Up exec xdotool mousemove_relative -- 0 -$fast
+	bindsym $mod2+Right exec xdotool mousemove_relative $fast 0
 
 	# Left Click
 	bindsym f exec xdotool click 1
