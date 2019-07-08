@@ -11,7 +11,9 @@ document.getElementsByClassName('ytp-ad-skip-button')[0].click()
 } catch {}
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
-  return {
+	//  alert("Original rect: " + rect.top+" "+rect.bottom);
+
+	return {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY,
     right: rect.right + window.scrollX,
@@ -21,7 +23,7 @@ function getOffset(el) {
 try{
 var elem = document.getElementsByClassName('html5-main-video')[0]
 var rect = getOffset(elem)
-alert(rect.top+" "+rect.bottom)
+//alert(rect.top+" "+rect.bottom)
 httpGetAsync('https://start.mpv/start?url='+window.location.href+'&left='+rect.left+'&top='+rect.top+'&right='+rect.right+'&bottom='+rect.bottom, alert)
 
 new ResizeObserver(updatesize).observe(elem)
