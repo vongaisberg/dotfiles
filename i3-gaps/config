@@ -53,10 +53,10 @@ mode "mouse" {
 
 	# Mouse movement (fast) -- vim keybindings
 
-	bindsym Shift+$mod2+h exec xdotool mousemove_relative -- -$fast 0
-	bindsym Shift+$mod2+j exec xdotool mousemove_relative 0 $fast
-	bindsym Shift+$mod2+k exec xdotool mousemove_relative -- 0 -$fast
-	bindsym Shift+$mod2+l exec xdotool mousemove_relative $fast 0
+	bindsym $mod2+h exec xdotool mousemove_relative -- -$fast 0
+	bindsym $mod2+j exec xdotool mousemove_relative 0 $fast
+	bindsym $mod2+k exec xdotool mousemove_relative -- 0 -$fast
+	bindsym $mod2+l exec xdotool mousemove_relative $fast 0
 
 	# Mouse movement (fast) -- arrow keys
 
@@ -92,10 +92,17 @@ mode "mouse" {
 	# Right Drag release
 	bindsym $mod2+s exec xdotool mouseup 3
 
+	# Scroll up
+	bindsym r exec xdotool click 4
+
+	# Scroll down
+	bindsym c exec xdotool click 5
+	
 
 	# return to normal keybindings -- IMPORTANT!!
 
 	bindsym Escape mode "default"
+	bindsym $Mod+m mode "default"
 }
 
 bindsym $mod+m mode "mouse"
@@ -341,8 +348,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo /usr/bin/modify_brightness inc 500 # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo /usr/bin/modify_brightness dec 500 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo /usr/bin/modify_brightness inc 100 # increase screen brightness
+bindsym XF86MonBrightnessDown exec sudo /usr/bin/modify_brightness dec 100 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
