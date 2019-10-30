@@ -64,6 +64,15 @@ format=json
 border=#f0c674
 
 
+[entropy]
+command=~/git/dotfiles/i3blocks-gaps/entropy.sh
+interval=1
+
+
+[entropy]
+command=~/git/dotfiles/i3blocks-gaps/brightness.sh
+interval=1
+
 [volume]
 command=i3status --config ~/.config/i3blocks/i3_status_volume
 interval=-3
