@@ -11,8 +11,8 @@
 ## Damit das Passwort vom Repository nicht eingegeben werden muss
 ## kann es in der Umgepungsvariable gesetzt werden
 # export BORG_PASSPHRASE=`/home/max/git/YouShallNotPassword/cli -command 'get;passphrases/borg_earth' -socket /home/max/git/YouShallNotPassword/socket`
-export BORG_PASSPHRASE='borg_passphrase'
-export BORG_CACHE_DIR='/data/borg/'
+
+
 ##
 ## Setzten von Variablen
 ##
@@ -53,24 +53,7 @@ echo "###### Backup gestartet: $(date) ######"
 ## werden.
 ##
 
-echo "Übertrage Dateien ..."
-borg create -v --stats -C lz4 -c 600 --progress   \
-    $REPOSITORY::$DATE                   \
-    /                                    \
-    --exclude /data                      \
-    --exclude /boot                      \
-    --exclude /dev                       \
-    --exclude /lib                       \
-    --exclude /lib64                     \
-    --exclude /proc                      \
-    --exclude /swapfile                  \
-    --exclude /tmp                       \
-    --exclude /sys                       \
-    --exclude /var/run                   \
-    --exclude /run                       \
-    --exclude /lost+found                \
-    --exclude /mnt                       \
-    --exclude /var/lib/lxcfs             \
-    --exclude '/home/*/.cache'           \
+echo "Getting info..."
+borg list     \
+    $REPOSITORY                  \
 
-echo "###### Backup beendet: $(date) ######"
