@@ -7,95 +7,110 @@ border_right=0
 border_bottom=2
 color=#e5e9f0
 
+[spotify]
+command=killall -s 11 spotifyd
+interval=5
+border=#e5e9f0
+signal=11
+
 [crypto]
 command=~/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "check"
 interval=1
-label=Crypto:
-border=#8abeb7
+label=
+border=#e5e9f0
 
 # Guess the weather hourly
 [weather]
 #command=curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | xargs echo
 #command=printf "Karlsruhe: "; curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | { ~/.config/i3/weather-emojis.sh "$(read -r foo; printf "%s" "$foo")"; read -r foo; printf " %s\n" "$foo"; }
-command=curl -Ss 'https://wttr.in/Karlsruhe?format=%l+%t+%w'
+command=curl -Ss wttr.in/Karlsruhe\?format\="%c%20%t%20%w"
 interval=120
+border=#e5e9f0
+# color=#ff0000
 
-border=#cc6666
-[cpu_temperature]
-label=
-command=i3status --config ~/.config/i3blocks/i3_status_cpu_temperature
-interval=-3
-format=json
+[cpu]
+command=/home/max/.config/i3blocks/cpu_usage
+interval=2
+label=
+border=#e5e9f0
 separator=false
 separator_block_width=0
-
-border=#81a2be
 
 [opening_bracket]
 full_text= (
 separator_block_width=0
+border=#e5e9f0
 
-border=#81a2be
-
-[cpu]
+[preference]
 signal=1
 command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
 interval=10
 separator_block_width=0
 separator=false
-border=#81a2be
+border=#e5e9f0
 
 [closing_bracket]
 full_text=)
-border=#81a2be
+border=#e5e9f0
+
+[cpu_temperature]
+label=
+command= ~/.config/i3blocks/temperature
+interval=3
+border=#e5e9f0
+
 
 [wireless]
 label=
-command=i3status --config ~/.config/i3blocks/i3_status_wireless
-interval=-3
-format=json
-border=#f0c674
+command=/home/max/.config/i3blocks/internet
+interval=3
+border=#e5e9f0
 
 
 [ethernet]
 command=i3status --config ~/.config/i3blocks/i3_status_ethernet
 interval=-3
 format=json
-border=#f0c674
+border=#e5e9f0
 
 
-[entropy]
-command=~/git/dotfiles/i3blocks-gaps/entropy.sh
-interval=1
+# [entropy]
+# command=~/git/dotfiles/i3blocks-gaps/entropy.sh
+# interval=10
+# label=RNG:
+# border=#e5e9f0
+# min_width=CPU: 100%
 
-
-[entropy]
+[brightness]
+signal=1
 command=~/git/dotfiles/i3blocks-gaps/brightness.sh
-interval=1
+interval=10
+label=
+border=#e5e9f0
 
 [volume]
-command=i3status --config ~/.config/i3blocks/i3_status_volume
-interval=-3
-format=json
-border=#81a2be
-
+command=~/.config/i3blocks/volume
+interval=10
+#format=json
+border=#e5e9f0
+signal=10
+label=
 
 [battery]
-command=i3status --config ~/.config/i3blocks/i3_status_battery
-interval=-3
-border=#b294bb
-format=json
+command=~/.config/i3blocks/battery
+interval=2
+markup=pango
+border=#e5e9f0
 
-# Update time every 5 seconds
 [time]
 command=date "+%d.%m.%Y %T"
 interval=1
-signal=2
-border=#8abeb7
+signal=11
+border=#e5e9f0
 
 
 # Invisible block that is used as a one-second cronjob.
 [spotify]
-command=/home/max/git/dotfiles/i3blocks-gaps/workspace.sh | grep "simply return nothing"
+#command=/home/max/git/dotfiles/i3blocks-gaps/workspace.sh | grep "simply return nothing"
 interval=1
 
