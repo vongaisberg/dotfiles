@@ -3,6 +3,7 @@ export DISPLAY=:0
 BATTERY_WARNING=15;
 BATTERY_DANGER=5;
 battery=$(acpi -b | grep -Eo "[0-9]+%" | grep -Eo "[0-9]+")
+echo $battery
 if [ "$battery" -lt "$BATTERY_WARNING" ]; then
 	if [ "$(cat ~/git/dotfiles/notified)" -eq 0 ]; then
 	sudo	/home/max/git/dotfiles/power_saving/power_settings.sh 0
