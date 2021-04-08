@@ -54,6 +54,6 @@ echo "###### Backup gestartet: $(date) ######"
 ##
 
 echo "Getting info..."
-borg list     \
+borg info -p    \
     $REPOSITORY                  \
 
