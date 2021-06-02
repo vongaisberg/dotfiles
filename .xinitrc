@@ -7,7 +7,7 @@
 # xrandr --setprovideroutputsource modesetting NVIDIA-0
 
 # xrandr --auto
-
+# ~/.screenlayout/1080p_right.sh
 
 
 # Update the background image.
@@ -21,7 +21,7 @@ compton --dbus -c --config ~/.config/compton.conf &
 ~/.fehbg &
 
 # Start YSNP password agent
-~/git/YouShallNotPassword/server -socket ~/git/YouShallNotPassword/socket &
+# ~/git/YouShallNotPassword/server -socket ~/git/YouShallNotPassword/socket &
 
 # Map CapsLock to ESC
 setxkbmap -option caps:escape
