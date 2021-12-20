@@ -15,6 +15,4 @@ function skip() {
 }
 
 skip();
-setInterval(function () {
-  skip();
-}, 250);
+setInterval(skip, 100);

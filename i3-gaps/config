@@ -12,16 +12,11 @@ focus_follows_mouse no
 
 # MOUSE MODE
 
+set $slow 20
+set $quick 1
+set $fast 500
 
 mode "mouse" {
-
-	# set your three speeds here
-
-#Switched slow and quick, as quick is my most-used speed and should have the easies key combination
-
-	set $slow 10
-	set $quick 1
-	set $fast 50
 
 	# Mouse movement (slow/fine-tuned) -- vim keybindings
 
@@ -75,22 +70,14 @@ mode "mouse" {
 	bindsym s exec xdotool click 3
 
 	# Left Click-and-drag
-	bindsym Shift+f exec xdotool mousedown 1
+	#bindsym Shift+f exec xdotool mousedown 1
+	bindsym Shift+f mode "mouse-drag"; exec xdotool mousedown 1
 
 	# Middle Click-and-drag 
 	bindsym Shift+d exec xdotool mousedown 2
 
 	# Right Click-and-drag
 	bindsym Shift+s exec xdotool mousedown 3
-
-	# Left Drag release
-	bindsym $mod2+f exec xdotool mouseup 1
-
-	# Middle Drag release
-	bindsym $mod2+d exec xdotool mouseup 2
-
-	# Right Drag release
-	bindsym $mod2+s exec xdotool mouseup 3
 
 	# Scroll up
 	bindsym r exec xdotool click 4
@@ -105,6 +92,74 @@ mode "mouse" {
 	bindsym $Mod+m mode "default"
 }
 
+mode "mouse-drag" {
+
+	# Mouse movement (slow/fine-tuned) -- vim keybindings
+
+	bindsym h exec xdotool mousemove_relative -- -$slow 0
+	bindsym j exec xdotool mousemove_relative 0 $slow
+	bindsym k exec xdotool mousemove_relative -- 0 -$slow
+	bindsym l exec xdotool mousemove_relative $slow 0
+
+	# Mouse movement (slow/fine-tuned) -- arrow keys
+
+	bindsym Left exec xdotool mousemove_relative -- -$slow 0
+	bindsym Down exec xdotool mousemove_relative 0 $slow
+	bindsym Up exec xdotool mousemove_relative -- 0 -$slow
+	bindsym Right exec xdotool mousemove_relative $slow 0
+
+	# Mouse movement (quicker) -- vim keybindings
+
+	bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
+	bindsym Shift+j exec xdotool mousemove_relative 0 $quick
+	bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
+	bindsym Shift+l exec xdotool mousemove_relative $quick 0
+
+	# Mouse movement (quicker) -- arrow keys
+
+	bindsym Shift+Left exec xdotool mousemove_relative -- -$quick 0
+	bindsym Shift+Down exec xdotool mousemove_relative 0 $quick
+	bindsym Shift+Up exec xdotool mousemove_relative -- 0 -$quick
+	bindsym Shift+Right exec xdotool mousemove_relative $quick 0
+
+	# Mouse movement (fast) -- vim keybindings
+
+	bindsym $mod2+h exec xdotool mousemove_relative -- -$fast 0
+	bindsym $mod2+j exec xdotool mousemove_relative 0 $fast
+	bindsym $mod2+k exec xdotool mousemove_relative -- 0 -$fast
+	bindsym $mod2+l exec xdotool mousemove_relative $fast 0
+
+	# Mouse movement (fast) -- arrow keys
+
+	bindsym $mod2+Left exec xdotool mousemove_relative -- -$fast 0
+	bindsym $mod2+Down exec xdotool mousemove_relative 0 $fast
+	bindsym $mod2+Up exec xdotool mousemove_relative -- 0 -$fast
+	bindsym $mod2+Right exec xdotool mousemove_relative $fast 0
+
+	# Left Click
+	bindsym f exec xdotool click 1
+
+	# Middle Click
+	bindsym d exec xdotool click 2
+
+	# Right Click
+	bindsym s exec xdotool click 3
+
+	# Left Drag release
+	bindsym Shift+f mode "mouse"; exec xdotool mouseup 1
+
+	# Scroll up
+	bindsym r exec xdotool click 4
+
+	# Scroll down
+	bindsym c exec xdotool click 5
+	
+
+	# return to normal keybindings -- IMPORTANT!!
+
+	bindsym Escape mode "default"
+	bindsym $Mod+m mode "default"
+}
 bindsym $mod+m mode "mouse"
 
 
@@ -122,12 +177,15 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+# start alacritty in same directory
+bindsym $mod+Shift+Return exec alacritty --working-directory "$(readlink -e /proc/"$(pgrep -P "$(xdo pid)" | tail -n 1)"/cwd)"
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left

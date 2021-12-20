@@ -28,6 +28,16 @@ interval=120
 border=#e5e9f0
 # color=#ff0000
 
+[temp_indoor]
+command=curl max.hadiko.de/temp.html | cut -c -2
+interval=1
+border=#e5e9f0
+separator=false
+separator_block_width=0
+[temp_indoor_sign]
+full_text=°C
+border=#e5e9f0
+
 [cpu]
 command=/home/max/.config/i3blocks/cpu_usage
 interval=2
