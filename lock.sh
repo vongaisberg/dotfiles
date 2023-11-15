@@ -20,12 +20,12 @@ pkill -u $USER -USR1 dunst
 # convert -composite \( -size 1920x1080 canvas:none -fill black \) -gravity center \( -scale 1920x1080  $(echo /home/max/.cache/himawaripy/*) \) /tmp/lockscreen.png
 
 i3lock -n -i /tmp/lockscreen.png \
-    --insidecolor=373445ff --ringcolor=ffffffff --line-uses-inside \
-    --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
-    --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
-    --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+30:y+710" \
-    --radius=15 --veriftext="" --wrongtext="" --noinputtext="" --clock \
-    --timecolor=ffffffff --timepos="w-22:11" --timesize=9.5 \
+    --inside-color=373445ff --ring-color=ffffffff --line-uses-inside \
+    --keyhl-color=d23c3dff --bshl-color=d23c3dff --separator-color=00000000 \
+    --insidever-color=fecf4dff --insidewrong-color=d23c3dff \
+    --ringver-color=ffffffff --ringwrong-color=ffffffff --ind-pos="x+45:y+1042" \
+    --radius=15 --verif-text="" --wrong-text="" --noinput-text="" --clock \
+    --time-color=ffffffff --time-pos="w-22:11" --time-size=9.5 \
     --time-font="opensans"
 pkill -u $USER -USR2 dunst
 

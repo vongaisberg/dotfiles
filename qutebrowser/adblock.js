@@ -1,3 +1,12 @@
+// ==UserScript==
+// @name         YouTube Adblock
+// @version      1.0.0
+// @description  Skip ads automatically
+// @author 	     vongaisberg
+// @match        *://*.youtube.com/*
+// @exclude      *://*.youtube.com/subscribe_embed?*
+// ==/UserScript==
+
 function skip() {
   try {
     let vid = document
@@ -15,4 +24,7 @@ function skip() {
 }
 
 skip();
-setInterval(skip, 100);
+
+if (!window.skipAdsIntervalID) {
+  window.skipAdsIntervalID = setInterval(skip, 100);
+}

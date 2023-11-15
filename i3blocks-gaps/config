@@ -7,60 +7,39 @@ border_right=0
 border_bottom=2
 color=#e5e9f0
 
-[spotify]
-command=killall -s 11 spotifyd
-interval=5
-border=#e5e9f0
-signal=11
+#[spotify]
+#command=killall -s 11 spotifyd
+#interval=5
+#border=#e5e9f0
+#signal=11
 
-[crypto]
-command=~/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "check"
-interval=1
-label=
-border=#e5e9f0
+#[crypto]
+#command=~/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "check"
+#interval=1
+#label=
+#border=#e5e9f0
 
 # Guess the weather hourly
 [weather]
 #command=curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | xargs echo
 #command=printf "Karlsruhe: "; curl -Ss 'https://wttr.in/Karlsruhe?0&T&Q' | cut -c 16- | head -2 | { ~/.config/i3/weather-emojis.sh "$(read -r foo; printf "%s" "$foo")"; read -r foo; printf " %s\n" "$foo"; }
-command=curl -Ss wttr.in/Karlsruhe\?format\="%c%20%t%20%w"
+command=curl -Ss wttr.in/Karlsruhe\?format\=1
 interval=120
 border=#e5e9f0
 # color=#ff0000
 
+
 [temp_indoor]
-command=curl max.hadiko.de/temp.html | cut -c -2
+command=curlie https://max.hadiko.de/temp.html | cut -c -2
+label=⌂
 interval=1
 border=#e5e9f0
 separator=false
 separator_block_width=0
+
+
 [temp_indoor_sign]
 full_text=°C
-border=#e5e9f0
-
-[cpu]
-command=/home/max/.config/i3blocks/cpu_usage
-interval=2
-label=
-border=#e5e9f0
-separator=false
-separator_block_width=0
-
-[opening_bracket]
-full_text= (
-separator_block_width=0
-border=#e5e9f0
-
-[preference]
-signal=1
-command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
-interval=10
-separator_block_width=0
-separator=false
-border=#e5e9f0
-
-[closing_bracket]
-full_text=)
 border=#e5e9f0
 
 [cpu_temperature]
@@ -69,9 +48,35 @@ command= ~/.config/i3blocks/temperature
 interval=3
 border=#e5e9f0
 
+[cpu]
+command=/home/max/.config/i3blocks/cpu_usage
+interval=2
+label=
+border=#e5e9f0
+#separator=false
+#separator_block_width=0
+
+[opening_bracket]
+#full_text= (
+separator_block_width=0
+border=#e5e9f0
+
+[preference]
+signal=1
+#command=cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_preference
+interval=10
+separator_block_width=0
+separator=false
+border=#e5e9f0
+
+[closing_bracket]
+#full_text=)
+border=#e5e9f0
+
+
 
 [wireless]
-label=
+#label=
 command=/home/max/.config/i3blocks/internet
 interval=3
 border=#e5e9f0
@@ -104,7 +109,7 @@ interval=10
 #format=json
 border=#e5e9f0
 signal=10
-label=
+label=🔊
 
 [battery]
 command=~/.config/i3blocks/battery

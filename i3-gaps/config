@@ -166,7 +166,7 @@ bindsym $mod+m mode "mouse"
 # END OF MOUSE MODE
 
 # Auto lock after timeout
-exec xautolock -time 15 -locker '~/git/dotfiles/lock.sh' &
+# exec xautolock -time 15 -locker '~/git/dotfiles/lock.sh' &
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -176,7 +176,8 @@ font pango:GoogleSans Nerd 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 # start alacritty in same directory
 bindsym $mod+Shift+Return exec alacritty --working-directory "$(readlink -e /proc/"$(pgrep -P "$(xdo pid)" | tail -n 1)"/cwd)"
 
@@ -337,21 +338,21 @@ mode "$mode_system" {
 #######
 
 # set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+#set $bg #282828
+#set $red #cc241d
+#set $green #98971a
+#set $yellow #d79921
+#set $blue #458588
+#set $purple #b16286
+#set $aqua #689d68
+#set $gray #a89984
+#set $darkgray #1d2021
 
 #COLORS
-client.focused          $blue $blue $darkgray $purple $gray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+#client.focused          $blue $blue $darkgray $purple $gray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -359,22 +360,22 @@ bar {
 	i3bar_command i3bar -t
 	status_command i3blocks
 	tray_output primary
-	font pango:opensans, FontAwesome 7
+	#font pango:opensans, FontAwesome 7
 	height 23
 	set $transparent #2b2b2b4f
 	
 	position top
     colors {
         # bar background color
-        background $bg
+#        background $bg
         # text color used for blocks that do not have a color specified.
-        statusline $yellow
+#        statusline $yellow
         # workspaces section            
         #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
+#        focused_workspace    $aqua $aqua $darkgray
+#        inactive_workspace   $darkgray $darkgray $yellow
+#        active_workspace     $darkgray $darkgray $yellow
+#        urgent_workspace     $red $red $bg
     }
 }
 
@@ -383,13 +384,13 @@ bar {
 #****
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh +5% #increase sound volume on both sinks
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh -5% #decrease sound volume on both sinks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec sudo /usr/bin/modify_brightness inc 375 # increase screen brightness
-bindsym XF86MonBrightnessDown exec sudo /usr/bin/modify_brightness dec 375 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && pkill -RTMIN+10 i3blocks # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && pkill -RTMIN+10 i3blocks # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -409,7 +410,7 @@ bindsym $mod+KP_Subtract exec sudo /home/max/git/dotfiles/power_saving/power_set
 for_window [class="^.*"] border pixel 1
 
 # Set inner/outer gaps
-gaps inner 5
+gaps inner 8
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -462,7 +463,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-set $mode_launch Launch: (q)utebrowser (c)hromium, (f)irefox, (n)eomutt, (s)potify, (z)athura, (u)nlock, (l)ock
+set $mode_launch Launch: (q)utebrowser (c)hromium, (f)irefox, (n)eomutt, (s)potify, (z)athura, (u)nlock, (l)ock, (p)assmenu
 
 bindsym $mod+g mode "$mode_launch"
 
@@ -475,6 +476,7 @@ mode "$mode_launch" {
 	bindsym n exec ~/.config/i3/neomutt-startup.sh;mode "default"
 	bindsym q exec qutebrowser;mode "default"
 	bindsym z exec zathura;mode "default"
+	bindsym p exec passmenu;mode "default"
 bindsym u exec alacritty -e /home/max/git/YouShallNotPassword/unlock.sh;mode "default"
 bindsym l exec alacritty -e /home/max/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "lock";mode "default"
 bindsym Return mode "default"
@@ -491,7 +493,8 @@ for_window [class="Spotify"] move to workspace number $ws10
 
 #Enable libinput-gestures
 exec ~/git/libinput-gestures/libinput-gestures-setup start &
-
+exec ~/.screenlayout/1080p_left.sh &
+exec nextcloud --background &
 
 
 
