@@ -1,0 +1,29 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt autocd extendedglob
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/max/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+autoload -Uz promptinit
+promptinit
+prompt walters
+
+plugins=(
+  git
+  bundler
+  dotenv
+  macos
+  rake
+  rbenv
+  ruby
+)
+
+source /home/max/.bashrc
