@@ -1,0 +1,46 @@
+ForwardX11 yes
+
+Host home
+  hostname home.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host wopr
+  hostname wopr.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host noc
+  hostname noc.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host myhadinet3
+  hostname myhadinet3.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host gerrit gerrit.hadiko.de
+  hostname gerrit.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host voip voip.hadiko.de
+  hostname voip.hadiko.de
+  identityfile ~/.ssh/hadinet_rsa
+  user maximilian
+
+Host sun max.hadiko.de
+  hostname max.hadiko.de
+  identityfile ~/.ssh/id_rsa
+  user max
+
+Host hpc bwunicluster.scc.kit.edu
+  hostname uc2-login2.scc.kit.edu
+  identityfile ~/.ssh/bwhpc
+  user wa1677
+
+Host github github.com
+	hostname github.com
+	user git
+	identityfile ~/git/github
