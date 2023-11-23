@@ -16,7 +16,7 @@ function skip() {
       )[0]
       .querySelector("video");
     vid.currentTime = vid.duration;
-    document.getElementsByClassName("ytp-ad-skip-button")[0].click();
+    document.getElementsByClassName("ytp-ad-skip-button-modern")[0].click();
   } catch {}
   try {
     document.getElementById("player-ads").remove();
