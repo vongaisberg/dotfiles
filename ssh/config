@@ -43,4 +43,4 @@ Host hpc bwunicluster.scc.kit.edu
 Host github github.com
 	hostname github.com
 	user git
-	identityfile ~/git/github
+	identityfile ~/.ssh/id_rsa

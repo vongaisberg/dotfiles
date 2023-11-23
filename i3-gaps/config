@@ -186,7 +186,7 @@ bindsym $mod+Shift+Return exec alacritty --working-directory "$(readlink -e /pro
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec "export LC_ALL=C; rofi -show drun"
 
 # change focus
 bindsym $mod+h focus left
@@ -285,7 +285,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# using plasma's logout screen instead of i3's
+bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -356,26 +358,27 @@ mode "$mode_system" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	i3bar_command i3bar -t
-	status_command i3blocks
+ bar {
+	#i3bar_command i3bar -t
+	i3bar_command ls	
+	status_command i3status
 	tray_output primary
-	#font pango:opensans, FontAwesome 7
+	font pango:opensans, FontAwesome 7
 	height 23
 	set $transparent #2b2b2b4f
-	
+#	
 	position top
-    colors {
+   colors {
         # bar background color
-#        background $bg
+        #background $bg
         # text color used for blocks that do not have a color specified.
-#        statusline $yellow
+        statusline $yellow
         # workspaces section            
         #                    border  backgr. text
-#        focused_workspace    $aqua $aqua $darkgray
-#        inactive_workspace   $darkgray $darkgray $yellow
-#        active_workspace     $darkgray $darkgray $yellow
-#        urgent_workspace     $red $red $bg
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
     }
 }
 
@@ -384,13 +387,13 @@ bar {
 #****
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh +5% #increase sound volume on both sinks
-bindsym XF86AudioLowerVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh -5% #decrease sound volume on both sinks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh +5% #increase sound volume on both sinks
+# bindsym XF86AudioLowerVolume exec --no-startup-id /home/max/.config/i3/change_volume.sh -5% #decrease sound volume on both sinks
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && pkill -RTMIN+10 i3blocks # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && pkill -RTMIN+10 i3blocks # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && pkill -RTMIN+10 i3blocks # increase screen brightness
+# BINDSYM xf86mOnBrightnessDown exec brightnessctl set 5%- && pkill -RTMIN+10 i3blocks # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -410,8 +413,8 @@ bindsym $mod+KP_Subtract exec sudo /home/max/git/dotfiles/power_saving/power_set
 for_window [class="^.*"] border pixel 1
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 0
+gaps inner 15
+gaps outer -10
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -463,7 +466,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-set $mode_launch Launch: (q)utebrowser (c)hromium, (f)irefox, (n)eomutt, (s)potify, (z)athura, (u)nlock, (l)ock, (p)assmenu
+set $mode_launch Launch: (q)utebrowser (c)hromium, (f)irefox, (p)assmenu, (s)ettings
 
 bindsym $mod+g mode "$mode_launch"
 
@@ -471,14 +474,10 @@ bindsym $mod+g mode "$mode_launch"
 # Quick Launch Shortcuts
 mode "$mode_launch" {
 	bindsym c exec chromium;mode "default"
-	bindsym s exec spotify;mode "default"
 	bindsym f exec firefox;mode "default"
-	bindsym n exec ~/.config/i3/neomutt-startup.sh;mode "default"
 	bindsym q exec qutebrowser;mode "default"
-	bindsym z exec zathura;mode "default"
 	bindsym p exec passmenu;mode "default"
-bindsym u exec alacritty -e /home/max/git/YouShallNotPassword/unlock.sh;mode "default"
-bindsym l exec alacritty -e /home/max/git/YouShallNotPassword/cli -socket ~/git/YouShallNotPassword/socket -command "lock";mode "default"
+	bindsym s exec systemsettings;mode "default"
 bindsym Return mode "default"
 	bindsym Escape mode "default"
 
@@ -497,4 +496,22 @@ exec ~/.screenlayout/1080p_left.sh &
 exec nextcloud --background &
 
 
+# Plasma compatibility improvements
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
+for_window [class="yakuake"] floating enable
+#for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move position 70 ppt 81 ppt
+no_focus [class="plasmashell" window_type="notification"]
+
+for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
