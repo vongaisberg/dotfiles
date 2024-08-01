@@ -9,12 +9,14 @@
 
 function skip() {
   try {
-    let vid = document
-      .getElementsByClassName("ytp-ad-player-overlay")[0]
-      .parentElement.parentElement.getElementsByClassName(
-        "html5-video-container"
-      )[0]
-      .querySelector("video");
+	  //let vid = document
+      //.getElementsByClassName("ytp-ad-player-overlay")[0]
+      //.parentElement.parentElement.getElementsByClassName(
+      //  "html5-video-container"
+      //)[0]
+      //.querySelector("video");
+
+let vid = document.getElementsByClassName("ad-showing")[0].getElementsByTagName("video")[0]
     vid.currentTime = vid.duration;
     document.getElementsByClassName("ytp-ad-skip-button-modern")[0].click();
   } catch {}
@@ -23,7 +25,7 @@ function skip() {
   } catch {}
 }
 
-skip();
+//////////////////////////////////////////////////////////skip();
 
 if (!window.skipAdsIntervalID) {
   window.skipAdsIntervalID = setInterval(skip, 100);

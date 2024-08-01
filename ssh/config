@@ -1,46 +1,55 @@
 ForwardX11 yes
 
+Host max.hadiko.de
+  HostName max.hadiko.de
+  User max
+
 Host home
-  hostname home.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName home.hadiko.de
+  IdentityFile ~/.ssh/hadinet_rsa
+  User maximilian
 
 Host wopr
-  hostname wopr.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName wopr.hadiko.de
+  IdentityFile ~/.ssh/hadinet_rsa
+  User maximilian
 
 Host noc
-  hostname noc.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName noc.hadiko.de
+  IdentityFile ~/.ssh/hadinet_rsa
+  User maximilian
 
 Host myhadinet3
-  hostname myhadinet3.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName myhadinet3.hadiko.de
+  IdentityFile ~/.ssh/hadinet_rsa
+  User maximilian
 
 Host gerrit gerrit.hadiko.de
-  hostname gerrit.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName gerrit.hadiko.de
+  IdentityFile ~/.ssh/id_rsa
+  User maximilian
 
 Host voip voip.hadiko.de
-  hostname voip.hadiko.de
-  identityfile ~/.ssh/hadinet_rsa
-  user maximilian
+  HostName voip.hadiko.de
+  IdentityFile ~/.ssh/hadinet_rsa
+  User maximilian
 
 Host sun max.hadiko.de
-  hostname max.hadiko.de
-  identityfile ~/.ssh/id_rsa
-  user max
+  HostName max.hadiko.de
+  IdentityFile ~/.ssh/id_rsa
+  User max
 
 Host hpc bwunicluster.scc.kit.edu
-  hostname uc2-login2.scc.kit.edu
-  identityfile ~/.ssh/bwhpc
-  user wa1677
+  HostName uc2-login2.scc.kit.edu
+  IdentityFile ~/.ssh/bwhpc
+  User wa1677
 
 Host github github.com
-	hostname github.com
-	user git
-	identityfile ~/.ssh/id_rsa
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa
+
+Host events1 events1.github.de
+	HostName events1.hadiko.de
+	User maximilian
+	IdentityFile ~/.ssh/id_rsa

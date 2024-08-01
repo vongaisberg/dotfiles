@@ -13,6 +13,7 @@
   #TERM: xterm-256color
 
 window:
+  opacity: 0.85
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -104,7 +105,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 7.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -197,7 +198,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window.opacity: 0.85
+
 
 # Mouse bindings
 #
@@ -223,18 +224,18 @@ mouse:
   # The `double_click` and `triple_click` settings control the time
   # alacritty should wait for accepting multiple clicks as one double
   # or triple click.
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
+  # double_click: { threshold: 300 }
+  # triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  hints:
+    # hints:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
     # The URL is always added to the command as the last parameter.
-    launcher: xdg-open
+    # launcher: xdg-open
 
     # URL modifiers
     #

@@ -187,6 +187,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec "export LC_ALL=C; rofi -show drun"
+bindsym $mod+Shift+d exec "krunner"
 
 # change focus
 bindsym $mod+h focus left
@@ -287,8 +288,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # using plasma's logout screen instead of i3's
-bindsym $mod+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
-
+bindsym $mod+Shift+e exec --no-startup-id qdbus org.kde.LogoutPrompt /LogoutPrompt promptLogout
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -361,7 +361,7 @@ mode "$mode_system" {
  bar {
 	#i3bar_command i3bar -t
 	i3bar_command ls	
-	status_command i3status
+	#status_command i3status
 	tray_output primary
 	font pango:opensans, FontAwesome 7
 	height 23
